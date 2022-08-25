@@ -1,5 +1,5 @@
 import React from 'react'
-
+import CartWidget from '../CartWidget/CartWidget'
 const Nabvar = () => {
   return (
     
@@ -12,6 +12,7 @@ const Nabvar = () => {
             <button>Barcelona</button>
             <button>Psg</button>
         </div>
+        <CartWidget/>
     </nav>
  
 
