@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Contador = ({stock}) => {
+const Contador = ({stock, onAdd}) => {
   const [count, setCount] = useState(1)
   
   const menos = ()=> {
@@ -20,6 +20,7 @@ return (
         <button onClick={menos}>-</button>
         <span>{count}</span>
         <button onClick={mas}>+</button>
+        <button onClick={ () => onAdd (count)}>Agregar al carrito</button>
         
       </div>  
   </div>
