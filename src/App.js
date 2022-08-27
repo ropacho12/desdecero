@@ -1,22 +1,30 @@
 
 import './App.css';
 import Nabvar from './componentes/Navbar/Nabvar';
-import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
-import Contador from './componentes/Contador/Contador';
 
+import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
+// import Contador from './componentes/Contador/Contador';
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
 function App() {
-  const Agregar = (cantidad) =>{
-    alert (`agregaste ${cantidad} productos`)
-  }
+  
 
   return (
     <div className="App">
-      <Nabvar/>
-      <ItemListContainer listaGeneral='Aca va la vista gral de productos'/>
-      <Contador stock={10} onAdd ={Agregar}/>
-      
+      <BrowserRouter>
+         <Nabvar/>
+       
+        <Routes>
+          <Route path='/' element={<ItemListContainer  listaGeneral=' vista gral de productos' />}/>
+          <Route path='/categoria/:categoriaId' element={<ItemListContainer listaGeneral='Filtrado' />}/>
+          <Route path='/detail/:ropaId'element={<ItemDetailContainer />}/>
+           
+        </Routes> 
+
+        
+      </BrowserRouter>
     
     </div>
 

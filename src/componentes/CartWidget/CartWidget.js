@@ -1,9 +1,10 @@
 import React from 'react'
+import './CartWidget.css'
 
 const CartWidget = () => {
   return (
      <div>
-        <img src='imagenes/carrito.png' alt='CartWidget'/>
+        <img className='cart-img' src='imagenes/carrito.png' alt='CartWidget'/>
          10
      </div>
   )

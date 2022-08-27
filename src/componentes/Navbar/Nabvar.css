@@ -1,0 +1,18 @@
+.filtro{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+color: aliceblue;
+background-color: rgb(40, 71, 155);
+}
+
+.link-filtro{
+    color: aliceblue;
+    padding: 16px;
+   margin: 16px;
+    background-color:cornflowerblue;
+}
+
+.home{
+    color:aliceblue;
+}
