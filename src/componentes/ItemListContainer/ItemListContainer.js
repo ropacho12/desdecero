@@ -1,7 +1,8 @@
 import { galeria, galeriaByCategoria } from '../../asyncMock'
 import {  useEffect, useState } from 'react'
-import ItemList from '../ItemList/ItemList';
+// import ItemList, { ListaDeProductos } from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import { ListaDeProductos } from '../ItemList/ItemList';
 
 
 const ItemListContainer = ({listaGeneral}) => {
@@ -35,11 +36,10 @@ const ItemListContainer = ({listaGeneral}) => {
 
 
   return (
-    < > 
-      <h1 >{listaGeneral}</h1>
-      
-     <ItemList productos ={productos}/>
-    
+    <> 
+      <h1>:D {listaGeneral}</h1>      
+      {/* <ItemList productos={productos} /> */}
+      <ListaDeProductos productos={productos}/>
     </>
   )
 }

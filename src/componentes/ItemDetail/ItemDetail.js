@@ -1,57 +1,50 @@
-
-import './ItemDetail.css'
-import Contador from '../Contador/Contador'
-import { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Contador from '../Contador/Contador'
+import { CartContext } from '../../CartContext/CartContext';
 
 
-const ItemDetail = ({name, img, categoria}) => {
-  const [irAlCarrito, setIrAlCarrito] = useState(false)
+
+export default function ItemDetail({stock, id, name, categoria, precio,img }) {
+  const [irAlCarrito, setIrAlCarrito] = useState(0);
   
+  const {totalPrice, totalProducts} = useContext (CartContext);
+
+
+  const clickAdd = (stock)=>{
+    setIrAlCarrito(stock)
+
+   const productAdd ={
+    id, name, precio
+   }
+  totalPrice (productAdd)
   
-  const Agregar = (cantidad) =>{
-    setIrAlCarrito (true)
-    
-    console.log (`agregaste ${cantidad} productos`)
-  }  
-  
+  }
+const cantidad_pedida= totalProducts()
+
+
+
   return (
-   
-    
-      <div className='itenL'>
-      <h1>{name}</h1>
-      <img className='itemImg'  src={img} alt={name}/>
-      <p> {categoria} </p>
+    <div>
+     
+      <h4>ItemDetail // {categoria}</h4>  
+      <img className='itemImg' src={img} alt={name}/>
+      <p> {categoria}</p>
+      <p> {precio}</p>
 
       <div>
-        {
-          irAlCarrito 
-             ? <Link to='/cart'>Finalizar compra</Link>
-             : <Contador stock={10} onAdd ={Agregar}/>
+        {irAlCarrito === 0?
+          (<Contador onAdd={clickAdd} stock={stock}/>
+          
+          ):  (
+             <Link to='/Cart'>Finalizar compra</Link>
+          )
+          
+          
         }
-
-
-
-
-
-
-
-      {/* <Contador stock={10} onAdd ={Agregar}/> */}
-        {/* <Link to={`/detail/${id}`}> Ver Detalle</Link> */}
-          {/* <Button onConfirm={add} stock={stock}/> */}
-      </div>
-
-    </div>
-   
+       </div> 
     
+      
+    </div>
   )
 }
-
-export default ItemDetail
-
-
-
-
-
-
-// 

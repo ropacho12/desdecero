@@ -1,13 +1,17 @@
 import React from 'react'
 import './CartWidget.css'
+//  import { CartProvider } from '../../CartContext/CartContext'
 
-const CartWidget = () => {
-  return (
-     <div>
+export const CartWidget = () => {
+//   const {totalPrice} = CartProvider();
+
+
+   return (
+     <>
         <img className='cart-img' src='imagenes/carrito.png' alt='CartWidget'/>
-         10
-     </div>
-  )
+         {/* <span>{totalPrice() || '' }</span> */}
+     </>
+  );
 }
 
 export default CartWidget
